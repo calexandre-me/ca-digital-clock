@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/icons/favicon.ico" />
+    <link rel="stylesheet" href="/font-awesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/font-awesome/css/brands.min.css">    
+    <link rel="stylesheet" href="/font-awesome/css/solid.min.css">    
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div id="query-message">
+        <i class="fa-solid fa-circle-info"></i>&nbsp;<span id="message">New features comming up.</span>
+    </div>
+    {{!-- First part --}}
+    <div class="wrapper-menu green" id="sec0">
+        <div class="left-elements">
+            <span id="name">CDC</span>
+            <div class="custom-menu">
+                <p>Mood</p>
+                <ul class="menu">
+                    <li><button id="btn-blue" name="target" value="blue">Blue&nbsp;<sub>Freedom, Intuition, Imagination, Inspiration, and Sensitivity</sub></button></li>
+                    <li><button id="btn-red" name="target" value="red">Red&nbsp;<sub>Hatred, anger, aggression, passion, heat and war</sub></button></li>
+                    <li><button id="btn-yellow" name="target" value="yellow">Yellow&nbsp;<sub>happiness, hope and spontaneity</sub></button></li>
+                    <li><button id="btn-pink" name="target" value="pink">Pink&nbsp;<sub>nurturing, playful, and nostalgic</sub></button></li>
+                    <li><button id="btn-green" class="active" name="target" value="green">Green(default)&nbsp;<sub>harmony, growth, freshness, energy</sub></button></li>
+                    <li><button id="btn-dark" name="target" value="dark">Dark&nbsp;<sub>Power, elegance, sophistication</sub></button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-elements">
+            <div>
+                <button id="profile">
+                    <i class="fa-solid fa-user"></i>&nbsp;Load profile
+                </button>
+            </div>
+            <div id="access">
+                <input type="radio" name="tabs" id="login" checked>
+                <label for="login" class="login-label"  name="login">Login</label>
+                <div class="tab">
+                    <h1>Login Form</h1>
+                    <form id="logging-in">
+                        <div>
+                            <span class="form-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <input type="email" name="email" placeholder="Username" required/>
+                        </div>
+                        <div>
+                            <span class="form-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
+                            <input type="password" name="password" placeholder="Password" required/>
+                        </div>
+                        <button type="submit">
+                            Login
+                        </button>
+                        <button type="button" class="close-access">
+                            Cancel
+                        </button>
+                    </form>
+                </div>
+                
+                <input type="radio" name="tabs" id="register" >
+                <label for="register" class="register-label"  name="register">Register</label>
+                <div class="tab">
+                    <h1>Registration Form</h1>
+                    <form id="registering">
+                        <div>
+                            <span class="form-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <input type="email" name="email" placeholder="Email" required/>
+                        </div>
+                        <div>
+                            <span class="form-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                            <input type="text" name="username" placeholder="Username" required/>
+                        </div>
+                        <div>
+                            <span class="form-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
+                            <input type="password" name="password" placeholder="Password" required/>
+                        </div>
+                        <button type="submit">
+                            Register
+                        </button>
+                        <button type="button" class="close-access">
+                            Cancel
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Second part -->
+    <h1 name="title" class="green" id="sec1">Digital Clock</h1>
+    <div class="clock green" id="sec2">
+        <div>
+            <span id="hour">00</span>
+            <span class="text">Hours</span>
+        </div>
+        <div>
+            <span id="minutes">00</span>
+            <span class="text">Minutes</span>
+        </div>
+        <div>
+            <span id="seconds">00</span>
+            <span class="text">Seconds</span>
+        </div>
+        <div>
+            <span id="am-pm">PM</span>
+        </div>
+    </div>
+    <!-- Final part -->
+    <div class="wrapper-bottom green" id="sec3">
+        <form>
+            <div class="rating" >
+                <input type="radio" name="rate" id="five" data-idx="0" hidden>
+                <label for="five"><span>Very Satisfied</span></label>
+                <input type="radio" name="rate" id="four" data-idx="1" hidden>
+                <label for="four"><span>Kind of atisfied</span></label>
+                <input type="radio" name="rate" id="three" data-idx="2" hidden>
+                <label for="three"><span>Neutral</span></label>
+                <input type="radio" name="rate" id="two" data-idx="3" hidden>
+                <label for="two"><span>Dissatified</span></label>
+                <input type="radio" name="rate" id="one" data-idx="0" hidden>
+                <label for="one"><span>Very dissatified</span></label>
+
+            </div>
+            <div>
+                <button type="submit" id="send">
+                    <i class="fa-solid fa-paper-plane"></i>&nbsp;Send
+                </button>
+                
+            </div>
+        </form>
+        <div class="sentence">
+            <span>(C) All right reserved</span>
+        </div>
+        <div class="social-media">
+            <span><a href=""><i class="fa-brands fa-facebook"></i></a></span>
+            <span><a href=""><i class="fa-brands fa-tiktok"></i></a></span>
+            <span><a href=""><i class="fa-brands fa-whatsapp"></i></a></span>
+        </div>
+    </div>
+</body>
+</html>
