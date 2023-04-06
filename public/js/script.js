@@ -1,3 +1,10 @@
+const documentHeight = () => {
+    const doc = document.documentElement
+    doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
+   }
+   window.addEventListener('resize', documentHeight)
+   documentHeight()
+
 let hour = document.getElementById('hour');
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('seconds');
