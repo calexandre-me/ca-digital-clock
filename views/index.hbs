@@ -23,12 +23,12 @@
             <div class="custom-menu">
                 <p>Mood</p>
                 <ul class="menu">
-                    <li><button id="btn-blue" name="target" value="blue">Blue&nbsp;<sub>Freedom, Intuition...</sub></button></li>
-                    <li><button id="btn-red" name="target" value="red">Red&nbsp;<sub>Hatred, anger, aggression...</sub></button></li>
-                    <li><button id="btn-yellow" name="target" value="yellow">Yellow&nbsp;<sub>happiness, hope...</sub></button></li>
-                    <li><button id="btn-pink" name="target" value="pink">Pink&nbsp;<sub>nurturing, playful, nostalgic...</sub></button></li>
-                    <li><button id="btn-green" class="active" name="target" value="green">^Green&nbsp;<sub>harmony, growth...</sub></button></li>
-                    <li><button id="btn-dark" name="target" value="dark">Dark&nbsp;<sub>Power, elegance...</sub></button></li>
+                    <li><button id="btn-blue" name="target" value="blue">Blue&nbsp;<sub>(Freedom, Intuition)</sub></button></li>
+                    <li><button id="btn-red" name="target" value="red">Red&nbsp;<sub>(Hatred, Love)</sub></button></li>
+                    <li><button id="btn-yellow" name="target" value="yellow">Yellow&nbsp;<sub>Happiness, Hope)</sub></button></li>
+                    <li><button id="btn-pink" name="target" value="pink">Pink&nbsp;<sub>(Nurturing, playful)</sub></button></li>
+                    <li><button id="btn-green" class="active" name="target" value="green">Green&nbsp;<sub>(Harmony, Growth)</sub></button></li>
+                    <li><button id="btn-dark" name="target" value="dark">Black&nbsp;<sub>(Power, Elegance)</sub></button></li>
                 </ul>
             </div>
         </div>
@@ -46,7 +46,7 @@
                     <form id="logging-in">
                         <div>
                             <span class="form-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-                            <input type="email" name="email" placeholder="Username" required/>
+                            <input type="email" name="email" placeholder="Email" required/>
                         </div>
                         <div>
                             <span class="form-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
@@ -66,13 +66,14 @@
                 <div class="tab">
                     <h1>Registration Form</h1>
                     <form id="registering">
-                        <div>
-                            <span class="form-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-                            <input type="email" name="email" placeholder="Email" required/>
-                        </div>
+                        
                         <div>
                             <span class="form-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                             <input type="text" name="username" placeholder="Username" required/>
+                        </div>
+                        <div>
+                            <span class="form-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <input type="email" name="email" placeholder="Email" required/>
                         </div>
                         <div>
                             <span class="form-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
@@ -87,6 +88,18 @@
                     </form>
                 </div>
 
+            </div>
+            {{!-- Use helper to manage this section ---}}
+            <div id="user-section">
+                <div class="user-icon">
+                    <img src="/icons/user.ico" width="32" height="32" alt="User Profile Icon">
+                </div>
+                <ul>
+                    <li><button>Show profile</button></li>
+                    <li><button>Upload an avatar</button></li>
+                    <li><button>Upload a background</button></li>
+                    <li><button>Logout</button></li>
+                </ul>    
             </div>
         </div>
     </div>
@@ -111,27 +124,6 @@
     </div>
     <!-- Final part -->
     <div class="wrapper-bottom green" id="sec3">
-        <form>
-            <div class="rating" >
-                <input type="radio" name="rate" id="five" data-idx="0" hidden>
-                <label for="five"><span>Very Satisfied</span></label>
-                <input type="radio" name="rate" id="four" data-idx="1" hidden>
-                <label for="four"><span>Kind of atisfied</span></label>
-                <input type="radio" name="rate" id="three" data-idx="2" hidden>
-                <label for="three"><span>Neutral</span></label>
-                <input type="radio" name="rate" id="two" data-idx="3" hidden>
-                <label for="two"><span>Dissatified</span></label>
-                <input type="radio" name="rate" id="one" data-idx="0" hidden>
-                <label for="one"><span>Very dissatified</span></label>
-
-            </div>
-            <div>
-                <button type="submit" id="send">
-                    <i class="fa-solid fa-paper-plane"></i>&nbsp;Send
-                </button>
-                
-            </div>
-        </form>
         <div class="sentence">
             <span>(C) All right reserved</span>
         </div>

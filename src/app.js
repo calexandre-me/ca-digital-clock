@@ -1,7 +1,9 @@
 const path = require('path');
 const express = require('express');
+require('./db/mongoose');
 const hbs = require('hbs');
 const routerApp = require('./routers/app-routes');
+const routerUser = require('./routers/user-routes');
 
 
 const app = express();
@@ -16,6 +18,7 @@ app.use(express.static(pathToRessources));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(routerApp);
+app.use(routerUser);
 
 const PORT = process.env.PORT || 3003;
 

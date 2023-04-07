@@ -116,3 +116,73 @@ darkTheme.addEventListener('click', function(){
     darkTheme.classList.add('active');
 })
 
+const messageOutput = document.getElementById('message');
+
+const formRegister = document.querySelector('#registering');
+formRegister.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const formData = new FormData(formRegister);
+    const data = new URLSearchParams(formData);
+
+    fetch('/board/users/register', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: data
+    })
+    .then(response=> {return response.json()})
+    .then(message=>{
+        if(message.error){
+            messageOutput.innerHTML = 'This user already exists.';
+            Object.assign(messageOutput.parentElement.style, {
+                display: 'block',
+                backgroundColor: 'red',
+            })  
+            return 
+        }
+        messageOutput.innerHTML = message.success;
+            Object.assign(messageOutput.parentElement.style, {
+                display: 'block',
+                backgroundColor: 'green'
+            });
+        console.log(message);
+    })
+    .catch(error=>{
+        console.log('There were an error '+ error);
+    })
+})
+
+const formLogin = document.querySelector('#logging-in');
+formLogin.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const formData = new FormData(formLogin);
+    const data = new URLSearchParams(formData);
+
+    for(let d of data){
+        console.log(d);
+    }
+    fetch('/board/users/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: data
+    })
+    .then(response=> {return response.json()})
+    .then(message=>{
+        if(message.error){
+            messageOutput.innerHTML = message.error;
+            Object.assign(messageOutput.parentElement.style, {
+                display: 'block',
+                backgroundColor: 'red',
+            })  
+            return 
+        }
+        messageOutput.innerHTML = message.ok;
+            Object.assign(messageOutput.parentElement.style, {
+                display: 'block',
+                backgroundColor: 'green'
+            });
+        console.log(message);
+    })
+    .catch(error=>{
+        console.log('There were an error '+ error);
+    })
+})
