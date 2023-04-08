@@ -456,4 +456,4 @@ div.tab form button[type="submit"]:focus{ background-color: var(--color-2);}
 
 #user-section ul li{border-bottom: 2px solid #fffcfc; }
 #user-section ul li button{ border-radius: 0px; width: 170px; font-size: 14px; text-align: right;}
-#user-section:hover ul{ display: block;}
+.user-icon:hover ~ #user-section ul{ display: block;}

@@ -5,49 +5,29 @@ const documentHeight = () => {
    window.addEventListener('resize', documentHeight)
    documentHeight()
 
-let hour = document.getElementById('hour');
-let minutes = document.getElementById('minutes');
-let seconds = document.getElementById('seconds');
-let am_Pm = document.getElementById('am-pm');
-
-const updateClock = function (){
-    const date = new Date();
-
-    let h = date.getHours();
-    
-    let m = date.getMinutes();
-    let s = date.getSeconds();
-
-    let amPm = "PM";
-
-    h >= 12 ? amPm = "PM" : amPm = "AM";
-    
-    if (h<10) { h = "0" + h } 
-    if (m<10) { m = "0" + m }
-    if (s<10) { s = "0" + s }
-  
-
-    hour.innerHTML = h;
-    minutes.innerHTML = m;
-    seconds.innerHTML = s;
-    am_Pm.innerHTML = amPm;
-
-    setTimeout(()=>{
-        updateClock();
-    }, 500);
+const isLogged = ()=>{
+    const vStored = localStorage.getItem('session');
+    console.log(vStored)
+    if(vStored === null) { return false;}
+    else{ return true;}
 }
-
-updateClock();
 
 const openAccess = document.getElementById('profile');
 const form = document.getElementById('access');
 const closeAccess = document.getElementsByClassName('close-access');
+const [userSection] = document.getElementsByClassName('user-icon');
+
+document.addEventListener('DOMContentLoaded', function(event){
+    console.log("Page loaded")
+    console.log(isLogged())
+    //Check also if the user has token authorization
+    if(isLogged()){ userSection.style.display = 'block'; openAccess.style.display = 'none'; }
+    else{ userSection.style.display = 'none'; openAccess.style.display = 'block';}
+});
 
 openAccess.addEventListener('click', ()=>{
     form.style.display = 'flex';
 })
-
-console.log(closeAccess);
 
 for(let i = 0; i<closeAccess.length; i++ ){
     closeAccess[i].addEventListener('click', ()=>{
@@ -89,8 +69,7 @@ blueRequest.addEventListener('click', function(){
 })
 
 const redRequest = document.getElementById('btn-red');
-redRequest.addEventListener('click', function(){
-    updateTheme('red');
+redRequest.addEventListener('click', function(){ updateTheme('red');
     redRequest.classList.add('active');
 })
 const yellowRequest = document.getElementById('btn-yellow')
@@ -156,10 +135,6 @@ formLogin.addEventListener('submit', (e)=>{
     e.preventDefault();
     const formData = new FormData(formLogin);
     const data = new URLSearchParams(formData);
-
-    for(let d of data){
-        console.log(d);
-    }
     fetch('/board/users/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -176,13 +151,51 @@ formLogin.addEventListener('submit', (e)=>{
             return 
         }
         messageOutput.innerHTML = message.ok;
-            Object.assign(messageOutput.parentElement.style, {
-                display: 'block',
-                backgroundColor: 'green'
-            });
+        Object.assign(messageOutput.parentElement.style, {
+            display: 'block',
+            backgroundColor: 'green'
+        });
+        localStorage.setItem('session', 'enabled');
+        userSection.style.display = "block";
+        openAccess.style.display = "none";
+        form.style.display = "none";
         console.log(message);
     })
     .catch(error=>{
         console.log('There were an error '+ error);
     })
 })
+
+let hour = document.getElementById('hour');
+let minutes = document.getElementById('minutes');
+let seconds = document.getElementById('seconds');
+let am_Pm = document.getElementById('am-pm');
+
+const updateClock = function (){
+    const date = new Date();
+
+    let h = date.getHours();
+    
+    let m = date.getMinutes();
+    let s = date.getSeconds();
+
+    let amPm = "PM";
+
+    h >= 12 ? amPm = "PM" : amPm = "AM";
+    
+    if (h<10) { h = "0" + h } 
+    if (m<10) { m = "0" + m }
+    if (s<10) { s = "0" + s }
+  
+
+    hour.innerHTML = h;
+    minutes.innerHTML = m;
+    seconds.innerHTML = s;
+    am_Pm.innerHTML = amPm;
+
+    setTimeout(()=>{
+        updateClock();
+    }, 500);
+}
+
+updateClock();
