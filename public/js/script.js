@@ -17,13 +17,16 @@ const form = document.getElementById('access');
 const closeAccess = document.getElementsByClassName('close-access');
 const [userSection] = document.getElementsByClassName('user-icon');
 
-document.addEventListener('DOMContentLoaded', function(event){
-    console.log("Page loaded")
-    console.log(isLogged())
-    //Check also if the user has token authorization
-    if(isLogged()){ userSection.style.display = 'block'; openAccess.style.display = 'none'; }
-    else{ userSection.style.display = 'none'; openAccess.style.display = 'block';}
-});
+// document.addEventListener('DOMContentLoaded', function(event){
+//     // console.log(isLogged());
+//     const status = {logged: isLogged()};
+//     fetch('/board', {
+//         method: 'POST',
+//         headers: {'Content-Type' : 'application/json'},
+//         body: JSON.stringify(status)
+//     })
+//     console.log('Request Send to the server.')
+// });
 
 openAccess.addEventListener('click', ()=>{
     form.style.display = 'flex';
@@ -49,12 +52,17 @@ function updateTheme(color){
     document.getElementById('sec1').classList.replace(active.value, color);
     document.getElementById('sec2').classList.replace(active.value, color)
     document.getElementById('sec3').classList.replace(active.value, color)
+    document.getElementById('sec4').classList.replace(active.value, color)
     active.classList.remove('active');
 
     fetch(`/mood-request?mood=${color}`).then(
         response => response.json()
         .then(data=>{
-            document.body.style.background = `url(${data.path})`;
+            Object.assign(document.body.style, {
+                background: `url(${data.path})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            })
         })
         .catch(error=>{
             console.log("An error occured!!!")
@@ -114,14 +122,16 @@ formRegister.addEventListener('submit', (e)=>{
             messageOutput.innerHTML = 'This user already exists.';
             Object.assign(messageOutput.parentElement.style, {
                 display: 'block',
-                backgroundColor: 'red',
+                transition: 'all 0.5s',
+                backgroundColor: '#ba5e5e',
             })  
             return 
         }
         messageOutput.innerHTML = message.success;
             Object.assign(messageOutput.parentElement.style, {
                 display: 'block',
-                backgroundColor: 'green'
+                transition: 'all 0.5s',
+                backgroundColor: '#5eba7d'
             });
         console.log(message);
     })
@@ -156,10 +166,7 @@ formLogin.addEventListener('submit', (e)=>{
             backgroundColor: 'green'
         });
         localStorage.setItem('session', 'enabled');
-        userSection.style.display = "block";
-        openAccess.style.display = "none";
-        form.style.display = "none";
-        console.log(message);
+        // location.reload();
     })
     .catch(error=>{
         console.log('There were an error '+ error);

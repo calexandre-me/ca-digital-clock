@@ -9,10 +9,15 @@ const routerUser = require('./routers/user-routes');
 const app = express();
 
 const pathToRessources = path.join(__dirname, '..', 'public');
-const pathToViews = path.join(__dirname, '..', 'views');
+const pathToViews = path.join(__dirname, '..', 'templates', 'views');
+const pathToPartials = path.join(__dirname, '..', 'templates', 'partials');
+
+
 
 app.set('views', pathToViews);
 app.set('view engine', 'hbs');
+
+hbs.registerPartials(pathToPartials);
 
 app.use(express.static(pathToRessources));
 app.use(express.urlencoded({extended: true}));

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{{!-- fmlqioFQuyHKMHtC---}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/icons/favicon.ico" />
+    <link rel="stylesheet" href="/font-awesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/font-awesome/css/brands.min.css">    
+    <link rel="stylesheet" href="/font-awesome/css/solid.min.css">    
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <title>Digital Clock</title>
+</head>
+<body>
+   {{>messages}}
+   {{!-- {{>rating}} --}}
+    {{!-- First part (header) --}}
+    <div class="wrapper-top green" id="sec0">
+        <div class="left-elements">
+            <span id="name">CDC</span>
+            <div class="custom-menu cm-1">
+                <p>Mood</p>
+                <ul class="menu">
+                    <li><button id="btn-blue" name="target" value="blue">Blue&nbsp;<sub>(Freedom, Intuition)</sub></button></li>
+                    <li><button id="btn-red" name="target" value="red">Red&nbsp;<sub>(Hatred, Love)</sub></button></li>
+                    <li><button id="btn-yellow" name="target" value="yellow">Yellow&nbsp;<sub>Happiness, Hope)</sub></button></li>
+                    <li><button id="btn-pink" name="target" value="pink">Pink&nbsp;<sub>(Nurturing, playful)</sub></button></li>
+                    <li><button id="btn-green" name="target" class="active" value="green">Green&nbsp;<sub>(Harmony, Growth)</sub></button></li>
+                    <li><button id="btn-dark" name="target"  value="dark">Black&nbsp;<sub>(Power, Elegance)</sub></button></li>
+                </ul>
+            </div>
+            <div class="custom-menu cm-2">
+                <p><i class="fa-solid fa-earth-americas"></i></p>
+                <ul class="menu">
+                    <li><button>USA&nbsp;<sub>North America</sub></button></li>
+                    <li><button>France&nbsp;<sub>North America</sub></button></li>
+                    <li><button>Canada&nbsp;<sub>North America</sub></button></li>
+                    <li><button>China&nbsp;<sub>North America</sub></button></li>
+                    <div class="search-country">
+                        <form>
+                            <input type="text" name="country" placeholder="Country" /><button type="submit">Go</button>
+                        </form>
+                    </div>
+                 </ul>
+            </div>
+        </div>
+        
+        <div class="right-elements">
+            {{#if userLogged}}
+            {{>userSection}} 
+            {{!-- Have some issues ---}}
+            {{else}}
+            {{>loginSection}}   
+            {{/if}}
+        </div>
+    </div>
+    <!-- Second part [clock and weather panel]-->
+    {{>clock}}
+    <!-- Final part (footer) -->
+    <div class="wrapper-bottom green" id="sec4">
+        <div class="sentence">
+            <span>(C) All right reserved</span>
+        </div>
+        <div class="social-media">
+            <span><a href=""><i class="fa-brands fa-facebook"></i></a></span>
+            <span><a href=""><i class="fa-brands fa-tiktok"></i></a></span>
+            <span><a href=""><i class="fa-brands fa-whatsapp"></i></a></span>
+        </div>
+    </div>
+</body>
+</html>

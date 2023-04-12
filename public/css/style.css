@@ -1,104 +1,97 @@
+/*Global styling*/
 html, body{
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 
 body{
     margin: 0;
     padding: 0;
-    height: -webkit-fill-available;
-    height: fill-available;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: url('/images/green-bg/green1.jpg');
-    background-repeat: no-repeat;
+    background-repeat: space;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
-    position: relative;
+    background-attachment: local;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-body button{ outline: none; border: none; background-color: transparent; color: #fff; font-size: 16px;}
-ul *{cursor: pointer;}
+body button{ 
+    outline: none; 
+    border: none; 
+    background-color: transparent; 
+    font-size: 16px;
+    color: #fff;
+}
+
+ul *{cursor: pointer;} input{outline: none; border: none;}
+
+/*Color pool for page styling*/
 .green{
-    --main-color: hsl(171, 96%, 32%);
-    --sub-color: hsla(171, 96%, 32%, 0.502);
-    --color-2: hsl(171, 97%, 12%);
-    --color-3: hsla(171, 96%, 32%, 0.602);
-    --color-4: hsla(171, 97%, 12%, 0.114);
-    --color-5: hsla(171, 97%, 12%, 0.95);
+    --main-color: hsl(171, 96%, 32%); --sub-color: hsla(171, 96%, 32%, 0.502);
+    --color-2: hsl(171, 97%, 12%);    --color-3: hsla(171, 96%, 32%, 0.602);
+    --color-4: hsla(171, 97%, 12%, 0.114); --color-5: hsla(171, 97%, 12%, 0.95);
     --color-6: #fff;
 }
 
 .blue{
-    --main-color: hsl(222, 96%, 32%); /*For the clock*/
-    --sub-color: hsla(222, 96%, 32%, 0.502);
-    --color-2: hsl(222, 97%, 12%); /*For in buttons/form*/
-    --color-3: hsla(222, 96%, 32%, 0.602);
-    --color-4: hsla(222, 97%, 12%, 0.114);
-    --color-5: hsla(222, 97%, 12%, 0.812);
+    --main-color: hsl(222, 96%, 32%); --sub-color: hsla(222, 96%, 32%, 0.502);
+    --color-2: hsl(222, 97%, 12%); --color-3: hsla(222, 96%, 32%, 0.602);
+    --color-4: hsla(222, 97%, 12%, 0.114); --color-5: hsla(222, 97%, 12%, 0.812);
     --color-6: #fff;
 }
 
 .red{
-    --main-color: hsl(0, 96%, 32%); /*For the clock*/
-    --sub-color: hsla(0, 96%, 32%, 0.502);
-    --color-2: hsl(0, 97%, 12%); /*For in buttons/form*/
-    --color-3: hsla(0, 96%, 32%, 0.602);
-    --color-4: hsla(0, 97%, 12%, 0.114);
-    --color-5: hsla(0, 97%, 12%, 0.612);
+    --main-color: hsl(0, 96%, 32%); --sub-color: hsla(0, 96%, 32%, 0.502);
+    --color-2: hsl(0, 97%, 12%); --color-3: hsla(0, 96%, 32%, 0.602);
+    --color-4: hsla(0, 97%, 12%, 0.114); --color-5: hsla(0, 97%, 12%, 0.612);
     --color-6: #fff;
 }
 
 .yellow{
-    --main-color: rgba(255, 255, 0, 0.9); /*For the clock*/
-    --sub-color: hsla(53, 96%, 32%, 0.902);
-    --color-2: hsl(60, 100%, 80%); /*For in buttons/form*/
-    --color-3: #FFFF00;
-    --color-4: hsla(57, 97%, 12%, 0.14);
-    --color-5: hsl(60, 100%, 50%, 0.7);
+    --main-color: rgba(255, 255, 0, 0.9); --sub-color: hsla(53, 96%, 32%, 0.902);
+    --color-2: hsl(60, 100%, 80%); --color-3: #FFFF00;
+    --color-4: hsla(57, 97%, 12%, 0.14); --color-5: hsl(60, 100%, 50%, 0.7);
     --color-6: #000000;
-
 }
 
 .pink{
-    --main-color: hsl(299, 96%, 32%); /*For the clock*/
-    --sub-color: hsla(299, 96%, 32%, 0.602);
-    --color-2: hsl(299, 97%, 12%); /*For in buttons/form*/
-    --color-3: hsla(299, 96%, 32%, 0.602);
-    --color-4: hsla(299, 97%, 12%, 0.114);
-    --color-5: hsla(299, 97%, 12%, 0.612);
+    --main-color: hsl(299, 96%, 32%); --sub-color: hsla(299, 96%, 32%, 0.602);
+    --color-2: hsl(299, 97%, 12%); --color-3: hsla(299, 96%, 32%, 0.602);
+    --color-4: hsla(299, 97%, 12%, 0.114); --color-5: hsla(299, 97%, 12%, 0.612);
     --color-6: #fff;
 }
 
 .dark{
-    --main-color: hsl(82, 0%, 22%); /*For the clock*/
-    --sub-color: hsla(82, 1%, 52%, 0.602);
-    --color-2: hsl(0, 0%, 12%); /*For in buttons/form*/
-    --color-3: hsla(0, 0%, 22%, 0.802);
-    --color-4: hsla(82, 2%, 32%, 0.114);
-    --color-5: hsla(82, 2%, 32%, 0.812);
+    --main-color: hsl(82, 0%, 22%); --sub-color: hsla(82, 1%, 52%, 0.602);
+    --color-2: hsl(0, 0%, 12%); --color-3: hsla(0, 0%, 22%, 0.802);
+    --color-4: hsla(82, 2%, 32%, 0.114); --color-5: hsla(82, 2%, 32%, 0.812);
     --color-6: #fff;
 }
-
+/*=================*/
+/*Message box styling*/
 #query-message{
-    display: none;
+    display: block;
     position: absolute;
     width: 250px;
-    height: fit-content;
     top: 50px;
     left: 0;
     padding: 5px 10px;
-    transition: all 5s ease;
+    transition: all 0.7s ease;
+    color: #ffffff;
 }
-
-.wrapper-menu, .wrapper-bottom{  
+/* ====================== */
+/*Top and Bottom bar styling*/
+.wrapper-top, .wrapper-bottom{  
     width: 98%;
     height: 45px;
-    background-color: var(--color-3)/*#03a1894d*/; 
     position: absolute;
+    background-color: var(--color-3); 
     color: var(--color-6);
     display: flex;
     justify-content: space-between;
@@ -106,45 +99,46 @@ ul *{cursor: pointer;}
     padding: 0 10px;
     margin: 1px auto;
 }
-.wrapper-menu{
-    top: 5px;
-}
 
+.wrapper-top{ top: 2px; }
+/* ========================= */
+/*[Top bar] Left side */
+/*Brand name styling*/
 #name{ 
-    font-size: 25px; 
+    font-size: 35px ; 
     font-weight: bold;
-    padding: 2px;
-    text-transform: uppercase;
+    padding: 10px;
     letter-spacing: 3px;
 }
-
+/* ====================== */
+/*Label menu styling*/
 .custom-menu{
-    background-color: var(--color-4)/*#013c331d*/;
     width: 70px;
     height: 45px;
-    margin: 0 25px;
     padding: 0 10px;
+    background-color: var(--color-4);
     border-radius: 10px;
     font: 18px sans-serif;
     position: relative;
     box-shadow: 2px 2px 4px #f9f9f9 , -2px -2px 4px #f9f9f9;
     display: inline-block;
-    line-height: 15px;
-    transition: all 0.8s;
-    pointer-events: stroke;
+    line-height: 10px;
+    cursor: pointer;
 }
 
-.custom-menu::after{
-    content: '\25bc';
-    position: absolute;
-    top: 45%;
-    right: 10px;
+.custom-menu::after{ 
+    content: '\25bc'; 
+    position: absolute; 
+    top: 45%; 
+    right: 10px; 
 }
 
-.custom-menu:hover{ border-bottom-left-radius: 0; border-bottom-right-radius: 0;}
-.custom-menu:hover::after{ top: 35%; transform: rotate(180deg);}
+.cm-2{width: 50px; margin: 0 0 0 15px}
 
-.menu{
+.custom-menu i{ font-size: 20px; line-height: 8px;}
+/* ========================= */
+/*Dropdown menu styling*/
+ul.menu{
     display: none;
     list-style: none;
     position: absolute;
@@ -153,13 +147,16 @@ ul *{cursor: pointer;}
     width: 250px;
     background-color: var(--color-5)/*#013c339c*/;
     box-shadow: 2px 2px 4px #f9f9f9 , -2px -2px 4px #f9f9f9;
-    
     padding: 0;
     z-index: 10;
-    transition: all 0.8s;
+    transition: display 0.8s ease;
 }
 
-.menu li{margin: 0 5px;}
+.menu li{margin: 0 10px;}
+
+.search-country{margin: 6px; display: inline-block;}
+.search-country input{ height: 25px; padding-left: 10px; width: 150px}
+.search-country button{width:50px; height: 25px; background-color: var(--main-color);}
 
 .menu li button{
     width: 100%;
@@ -171,44 +168,106 @@ ul *{cursor: pointer;}
     border-bottom: 1px solid var(--sub-color);
 }
 .menu li button sub{font-style: italic; font-weight: lighter;}
+.menu li button:hover{background-color: var(--color-3); color: var(--color-6);}
+.menu li button:focus { background-color: var(--main-color);}
 
-.custom-menu:hover .menu{ display: block; border-radius: 0 0 10px 10px;}
+.custom-menu:hover::after{ top: 35%; transform: rotate(180deg);}
+.custom-menu:hover .menu{ display: block;}
+/* ===================== */
+/*^^^^^^^^^^^^^^^^^^^*/
 
-.menu li button:hover{background-color: #f1f1f0; color: #000000;}
+/*[Right Element] styling*/
+
+.right-elements{ display: flex;}
 
 .right-elements button{
-    width: 100%;
     height: 30px;
-    background-color: var(--main-color)/*#03A189*/;
+    background-color: var(--main-color);
     color: var(--color-6);
     border-radius: 30px;
     padding: 0 10px;
 }
 
-@media screen and (max-width: 375px) {
-    #query-message{
-        top: 120px;
-    }
-    .wrapper-menu{
-        flex-direction: column;
-        justify-content: space-around;
-        height: 110px;
-        align-items: flex-start;
-    }
-    .custom-menu{ position: unset;  width: 100px;}
-    .custom-menu::after{top: 25%; right: 38%;}
-    .custom-menu:hover::after{ top: 23%}
+#access{
+    width: 300px;
+    background-color: #ffffff;
+    color: var(--color-6);
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 20;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-    .left-elements, .right-elements{ margin-left: 20px}
-    .menu{width: 100%; left: 0; top: 36.5px;}
-    .menu li{padding: 8px;}
-    .menu li button{height: 40px;}
 }
 
-/*Second Part*/
+/*Login section styling*/
+#access input[type="radio"]{display: none; }
+#access label { padding: 2px 10px; color: #484242; }
 
+#access div.tab{ 
+    border-top: 3px solid var(--sub-color)/*#03a18980*/;
+    padding: 0px 25px;
+    display: none;
+    order: 1;
+}
+
+div.tab h1{
+    text-align: center;
+    color: #484242cc;
+}
+
+div.tab input{
+    outline: none;
+    border: 1px solid #d5d5d5;
+    width: calc(100% - 68px);
+    height: 30px;
+    position: relative;
+    margin-bottom: 8px;
+    padding: 0 34px;
+    font-size: 16px;
+}
+
+
+div.tab form button{display: inline-block; width: 80px; margin: 10px 0; background-color: #5f5f5f;}
+div.tab form button[type="submit"]{background-color: var(--main-color)/*#03A189;*/}
+div.tab form button[type="submit"]:focus{ background-color: var(--color-2);}
+
+.form-icon{
+    position: absolute;
+    z-index: 20;
+    color: #566055cc;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    padding-left: 5px;
+    line-height: 32px;
+}
+
+#access input[type="radio"]:checked + label + div.tab{ display: block;}
+#access input[type="radio"]:checked + label{ background-color: var(--sub-color)/*#03A189*/; color: #fff}
+
+/*User section styling*/
+
+.user-icon{ position: relative; background-color: var(--sub-color); padding: 0 10px;  border-radius: 50%; cursor: pointer;}
+
+#user-section{
+    position: absolute; right: 0px;
+    list-style: none;  display: block; 
+    z-index: 20; width: 170px;  margin: 0; padding:0;
+}
+
+#user-section li{border-bottom: 2px solid var(--color-4); }
+#user-section li button{ border-radius: 0px; width: 170px; font-size: 14px; text-align: right;}
+.user-icon:hover #user-section{ display: block;}
+/*^^^^^^^^^^^^^^^^^^^^^*/
+
+/*Second Part*/
+/* Clock styling */
  h1[name='title']{
-    text-transform: uppercase;
     letter-spacing: 4px;
     font-size: 28px;
     font-weight: bold;
@@ -218,14 +277,9 @@ ul *{cursor: pointer;}
     -webkit-text-stroke: 1.5px var(--color-2)/*#013c33*/;
 }
 
-.clock{
-    display: flex;
-}
+.clock{ display: flex; justify-content: flex-end;}
 
-.clock div{
-    margin: 5px;
-    position: relative;
-}
+.clock div{ margin: 5px; position: relative; }
 
 .clock span{
     width: 100px;
@@ -258,202 +312,192 @@ ul *{cursor: pointer;}
     font-size: 16px;
     background: var(--color-2)/*#013c33*/;
 }
+/* Weather banner styling */
+.weather-container{
+    height: 80px;
+    background: linear-gradient(.10turn, var(--main-color), var(--sub-color));
+    backdrop-filter: blur(4px);
+    border-radius: 15px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 25px;
+    row-gap: 8px;
+    justify-content: center;
+    color: var(--color-6);
+}
 
-@media screen and (max-width: 767px) {
+.weather-container div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.weather-container div:nth-child(2){
+    border-left: 2px solid var(--main-color);
+}
+.weather-container div:not(.data1){
+    background-color: var(--sub-color);
+    padding: 4px;
+}
+
+.forecast span i{ padding-top: 5px; font-size: 18px;}
+
+.fs-value{ font-size: 16px; text-align: center;}
+
+
+@media screen and (max-width: 896px) {
 
     html, body{
         height: 100%;
         overflow: hidden;
     }
     
+    .clock { position: relative;}
 
-.clock { position: relative;}
+    .clock div{position: unset;}
 
-.clock div{position: unset;}
+    .clock span{ width: 85px; height: 44px; font-size: 25px; }
 
-.clock span{
-    width: 85px;
-    height: 44px;
-    font-size: 25px;
-}
+    .clock .text{ height: 20px; font-size: 15px; }
 
-.clock .text{
-    height: 20px;
-    font-size: 15px;
-}
-
-.clock #am-pm{
-    left: 5px;
-    bottom: -30px;
-}
-
+    /*[Section clock]*/
+    .clock #am-pm{
+        width: 40px;
+        top: calc(50% - 20px);
+        left: 260px;
+        transform: rotate(90deg);
+    }
 }
 
 .wrapper-bottom{ bottom: 0; display: flex; justify-content: space-around; font-size: 18px;}
 
-.wrapper-bottom form {
-    display: inline-flex;
+.wrapper-bottom form { display: inline-flex; }
+
+/*Rating section*/
+.rating-container{
+    background-color: #000000;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+}
+.star-tab input{ display: none; transform: rotatex(180deg);}
+.rating-icon{ color: yellow; font-size: 22px;  animation: spin 0.9s infinite;}
+.star-tab label{ font-size: 24px; color: #444; padding: 5px; margin: 5px; float: right;
+     transition: all 0.2s ease;  cursor: pointer;}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+    color: #fd4;
+}
+input:checked ~ label{ color: #fd4;}
+input#rate-5:checked ~ label{ color: #fe7; text-shadow: 0 0 20px #952;}
+input#rate-5:checked ~ #comment-form span::before{
+    content: 'This is ugly';
+}
+input#rate-4:checked ~ #comment-form span::before{
+    content: 'This looks kind of';
+}
+input#rate-3:checked ~ #comment-form span::before{
+    content: 'This is in the middle';
+}
+input#rate-2:checked ~ #comment-form span::before{
+    content: 'This is cute';
+}
+input#rate-1:checked ~ #comment-form span::before{
+    content: 'This is awesome';
+}
+.rating-container form{ display: none;}
+input:checked ~ form{ display: block;}
+
+#comment-form span{ 
+    font-size: 20px; 
+    width: 100%; 
+    text-align: center; 
+    background-color: #952;
+    font-weight: 500;
+    margin: 0 0 10px 10px;
 }
 
-.rating{
-    position: relative;
-    display: inline-block;
-    font-size: 0;
-    padding: 0 50px 8%;
-    color: #fff;
-    border: 1px solid var(--main-color)/*#03A189*/;
+#comment-form div.textarea{
+    margin: 15px 0;
+    height: 100px;
+    width: 100%;
+} 
+
+#comment-form div.textarea textarea{
+    width: 100%;
+    height: 100%;
+    outline: 1px solid rgb(147, 37, 37);
+    resize: none;
 }
 
-label{
-    padding: 0;
-    font-size: 20px;
+#comment-form button{
+    background-color: red;
+    padding: 5px;
+    width: 100%;
+    text-transform: uppercase;
     cursor: pointer;
 }
 
-.rating label::before{
-    content: '\2606';
-    padding-bottom: 8px;
-    display: inline-block;
-    transition: 0.2s;
-}
+.rating-container:hover .star-tab{display: block;}
 
-.rating span{
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    height: 20px;
-    font-size: 1rem;
-    white-space: nowrap;
-    transition: 0.2s;
-    pointer-events: none;
-    letter-spacing: -2px;
-    transform: translateY(-50%);
-}
-
-.rating label:hover span{
-    opacity: 1;
-    transform: none;
-    letter-spacing: 0;
-}
-
-.rating input:checked ~ .rating label::before{
-    content: '\2606';
-    background-color: #c98403;
-    filter: drop-shadow(0 0 4px);
-    transform: rotate( 100deg);
-    color: orange;
-}
-
-#send{
-    background-color: var(--sub-color)/*#03a18980*/;
-    height: 60px;
-}
-
-.sentence{ flex-grow: 0.2;}
-
+/******/
 .social-media{margin: 0 10px}
 .social-media *{padding: 3px; color: var(--color-6);}
 
 @media screen and (max-width: 575px) {
-    .wrapper-bottom{ 
-        height: 110px;
-        flex-direction: column;
-    }
-    .wrapper-bottom form {
-        display: inline;
-    }
-    .rating{display: block; width: 100%; padding: 10px 5px;}
-    #send{height: 30px;}
+    .wrapper-bottom{ height: 65px; flex-direction: column; }
     .sentence{text-align: center;}
 }   
 
-@media screen and (orientation: landscape) and (max-height: 290px){
-    .menu li button{
-        height: 30px;
+@media screen and (orientation: landscape) and (max-height: 575px){
+    body{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+    }
+    .menu li button{ height: 30px; }
+    #access{
+        top: 0px;
+        
+    }
+
+    h1[name="title"]{display: none;}
+    .weather-container{
+        padding: 5px;
+        border-radius: 0;
+        height: 88px;
+        grid-template-columns: repeat(4, auto);    
     }
 }
 
-/* #profile{display: none;} */
+/* Media query 1 */
+@media screen and (max-width: 500px) {
+    #query-message{ top: 120px; }
+    .wrapper-top{
+        flex-direction: column;
+        justify-content: space-around;
+        height: 110px;
+        align-items: flex-start;
+    }
+    .custom-menu{ position: unset; text-align: center;}
+    .custom-menu::after{content: none;}
 
-#access{
-    width: 300px;
-    height: fit-content;
-    background-color: #ffffff;
-    color: var(--color-6);
-    position: absolute;
-    right: 10px;
-    z-index: 20;
-    display: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 5px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    .left-elements, .right-elements{ margin-left: 20px}
+    ul.menu{width: 100%; left: 0; top: 36.5px;}
+    .menu li{padding: 8px;}
+    .menu li button{height: 40px;}
+    /* [Menu right] access */
+    #access{top: 100px; left: 0;}
+   
 }
-
-#access input[type="radio"]{display: none; }
-#access label { padding: 5px 10px; color: #484242; }
-
-#access div.tab{ 
-    border-top: 3px solid var(--sub-color)/*#03a18980*/;
-    padding: 0px 25px;
-    width: 100%;
-    height: fit-content;
-    display: none;
-    order: 1;
-}
-
-div.tab h1{
-    text-align: center;
-    color: #484242cc;
-}
-
-div.tab input{
-    outline: none;
-    border: 1px solid #d5d5d5;
-    width: calc(100% - 68px);
-    height: 30px;
-    position: relative;
-    margin-bottom: 8px;
-    padding: 0 34px;
-    font-size: 16px;
-}
-
-div.tab form button{display: inline-block; width: 80px; margin: 10px 0; background-color: #5f5f5f;}
-div.tab form button[type="submit"]{background-color: var(--main-color)/*#03A189;*/}
-div.tab form button[type="submit"]:focus{ background-color: var(--color-2);}
-
-.form-icon{
-    position: absolute;
-    z-index: 20;
-    color: #566055cc;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
-    padding-left: 5px;
-    line-height: 32px;
-}
-
-#access input[type="radio"]:checked + label + div.tab{ display: block;}
-#access input[type="radio"]:checked + label{ background-color: var(--sub-color)/*#03A189*/; color: #fff}
-
-@media screen and (orientation: landscape) and (max-height: 290px){
-    #access div.tab{ width: 300px; height: 200px; display: flex; flex-direction: row; justify-content: space-around;}
-}
-
-/**/
-
-.user-icon{ background-color: var(--sub-color); border-radius: 50%; cursor: pointer;}
-
-#user-section ul{
-    display: none; 
-    list-style: none; position: absolute; top: 22px; right: 10px;
-    z-index: 20; width: 170px; padding: 0;
-}
-
-#user-section ul li{border-bottom: 2px solid #fffcfc; }
-#user-section ul li button{ border-radius: 0px; width: 170px; font-size: 14px; text-align: right;}
-.user-icon:hover ~ #user-section ul{ display: block;}

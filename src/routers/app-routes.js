@@ -2,14 +2,31 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get("^/$|^/board.html$", (req, res)=>[
-    res.redirect('/board')
-]);
+router.get("^/$|^/board.html$", (req, res)=>{
+    const str = encodeURIComponent();
+    res.redirect('/board?logged=')
+});
 
 
 router.get("^/board$" , (req, res)=>{
-    res.render('index')
+    res.render('index', {userLogged: false});
 });
+
+// router.post("/board" , (req, res)=>{
+//     const status = req.body.logged;
+//     console.log(status);
+    
+//     if(status) return res.redirect('/board', {userLogged: true});
+
+//     res.render('index', {userLogged: false});
+// });
+
+// router.post("^/board$" , (req, res)=>{
+//     //console.log('The result is ' + !req.query.logged);
+//     console.log(req.query)
+//     res.set('location', '/board');
+//     res.json(302, {userLogged: req.query.logged});
+// });
 
 function getRandomIndex(min, max) {  
     return Math.floor(
